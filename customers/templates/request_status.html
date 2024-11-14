@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Request Status</title>
+</head>
+<body>
+    <h1>Your Service Requests</h1>
+    <table>
+        <tr>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Date Submitted</th>
+            <th>Date Resolved</th>
+        </tr>
+        {% for request in requests %}
+        <tr>
+            <td>{{ request.get_request_type_display }}</td>
+            <td>{{ request.get_status_display }}</td>
+            <td>{{ request.date_submitted }}</td>
+            <td>{{ request.date_resolved|default:"N/A" }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+
